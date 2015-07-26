@@ -12,6 +12,11 @@ type mech struct {
 	name      string
 }
 
+// Retrieves the amount of remaining structure a mech has.
+func (mech mech) StructureLeft() int {
+	return mech.structure
+}
+
 // NewMech is used to create a new instance of a mech with default structure.
 func NewMech(name string) *mech {
 	newMech := new(mech)
@@ -36,8 +41,8 @@ func (mech *mech) AddWeapon(weapon Weapon) {
 }
 
 // Tell the Mech to fire at a Target
-func (mech *mech) Fire(rangeToTarger int, target Target) {
+func (mech *mech) Fire(rangeToTarget int, target Target) {
 	for _, weapon := range mech.weapons {
-		weapon.Fire(rangeToTarger, target)
+		weapon.Fire(rangeToTarget, target)
 	}
 }

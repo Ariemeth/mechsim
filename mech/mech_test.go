@@ -38,6 +38,10 @@ func TestHit(t *testing.T) {
 	}
 }
 
+func TestStructureLeft(t *testing.T) {
+
+}
+
 func TestAddWeapon(t *testing.T) {
 
 }

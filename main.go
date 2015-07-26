@@ -2,6 +2,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/Ariemeth/mechsim/mech"
 )
 
@@ -24,4 +26,6 @@ func main() {
 
 	mech1.Fire(4, mech2)
 
+	fmt.Println("Mech1 has ", mech1.StructureLeft(), " structure left.")
+	fmt.Println("Mech2 has ", mech2.StructureLeft(), " structure left.")
 }
