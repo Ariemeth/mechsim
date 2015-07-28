@@ -1,4 +1,4 @@
-// mech project mech.go
+// Package mech project mech.go
 package mech
 
 import (
@@ -6,20 +6,20 @@ import (
 )
 
 // Mech is a basic mech type
-type mech struct {
+type Mech struct {
 	structure int
 	weapons   []Weapon
 	name      string
 }
 
-// Retrieves the amount of remaining structure a mech has.
-func (mech mech) StructureLeft() int {
+// StructureLeft Retrieves the amount of remaining structure a mech has.
+func (mech Mech) StructureLeft() int {
 	return mech.structure
 }
 
 // NewMech is used to create a new instance of a mech with default structure.
-func NewMech(name string) *mech {
-	newMech := new(mech)
+func NewMech(name string) *Mech {
+	newMech := new(Mech)
 	newMech.structure = 2
 	newMech.name = name
 
@@ -27,7 +27,7 @@ func NewMech(name string) *mech {
 }
 
 // internal call when a mech is hit
-func (mech *mech) hit(damage int) {
+func (mech *Mech) hit(damage int) {
 	mech.structure -= damage
 	fmt.Println(mech.name, "takes", damage, "damage")
 	if mech.structure <= 0 {
@@ -35,13 +35,13 @@ func (mech *mech) hit(damage int) {
 	}
 }
 
-// Add a Weapon to the mech
-func (mech *mech) AddWeapon(weapon Weapon) {
+// AddWeapon adds a Weapon to the mech
+func (mech *Mech) AddWeapon(weapon Weapon) {
 	mech.weapons = append(mech.weapons, weapon)
 }
 
-// Tell the Mech to fire at a Target
-func (mech *mech) Fire(rangeToTarget int, target Target) {
+// Fire tells the Mech to fire at a Target
+func (mech *Mech) Fire(rangeToTarget int, target Target) {
 	for _, weapon := range mech.weapons {
 		weapon.Fire(rangeToTarget, target)
 	}

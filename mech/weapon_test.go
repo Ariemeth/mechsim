@@ -6,10 +6,10 @@ func TestWeapon(t *testing.T) {
 	weapon1 := Weapon{Damage: 2, Range: 2}
 
 	if weapon1.Damage != 2 {
-		t.Errorf("weapon1 damage is %i instead of 2", weapon1.Damage)
+		t.Errorf("weapon1 damage is %d instead of 2", weapon1.Damage)
 	}
 	if weapon1.Range != 2 {
-		t.Errorf("weapon1 range is %i instead of 2", weapon1.Range)
+		t.Errorf("weapon1 range is %d instead of 2", weapon1.Range)
 	}
 }
 
