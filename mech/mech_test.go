@@ -7,34 +7,42 @@ func TestNewMech(t *testing.T) {
 	//	weapon1 := Weapon{Damage:2, Range:2}
 	//	weapon2 := Weapon{Damage:1, Range:4}
 
-	mech1 := NewMech("testMech1")
+	const mechName string = "testMech"
+	const structure int = 2
+
+	mech1 := NewMech(mechName, structure)
 	if mech1 == nil {
-		t.Errorf("mech1 was unable to be created")
+		t.Errorf("%s was unable to be created", mechName)
 	}
 
-	mech2 := NewMech("testMech2")
-	if mech2 == nil {
-		t.Errorf("mech2 was unable to be created")
+	if mech1.StructureLeft() != structure {
+		t.Errorf("%s does not have %d structure", mechName, structure)
+	}
+
+	if mech1.name != mechName {
+		t.Errorf("%s does not have the correct name", mechName)
 	}
 }
 
 func TestHit(t *testing.T) {
 
 	//	weapon1 := Weapon{Damage:2, Range:2}
+	const mechName string = "testMech"
+	const structure int = 2
 
-	mech1 := NewMech("testMech1")
+	mech1 := NewMech(mechName, structure)
 	if mech1 == nil {
-		t.Errorf("mech1 was unable to be created")
+		t.Errorf("%s was unable to be created", mechName)
 	}
 
 	mech1.hit(0)
-	if mech1.structure != 2 {
-		t.Errorf("mech1 took damage when it was hit with 0")
+	if mech1.structure != structure {
+		t.Errorf("%s took damage when it was hit with 0", mechName)
 	}
 
-	mech1.hit(2)
+	mech1.hit(structure)
 	if mech1.structure != 0 {
-		t.Errorf("mech1 was not destroyed by taking 2 damage")
+		t.Errorf("%s was not destroyed by taking %d damage", mechName, structure)
 	}
 }
 

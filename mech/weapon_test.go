@@ -16,7 +16,7 @@ func TestWeapon(t *testing.T) {
 func TestWeaponFire(t *testing.T) {
 	weapon1 := Weapon{Damage: 2, Range: 2}
 
-	mech1 := NewMech("testMech1")
+	mech1 := NewMech("testMech1", 2)
 	if mech1 == nil {
 		t.Errorf("mech1 was unable to be created")
 	}

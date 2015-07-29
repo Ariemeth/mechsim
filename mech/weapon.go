@@ -3,8 +3,8 @@ package mech
 // Weapon is weapon with specific characteristics
 type Weapon struct {
 	Range, Damage int
-	Name          string
-	HitRate       float64
+	name          string
+	hitRate       float64
 }
 
 // Target is an interface used by objects that can be hit and take damage

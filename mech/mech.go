@@ -7,23 +7,25 @@ import (
 
 // Mech is a basic mech type
 type Mech struct {
-	structure int
-	weapons   []Weapon
-	name      string
+	structure    int
+	maxStructure int
+	weapons      []Weapon
+	name         string
+}
+
+// NewMech is used to create a new instance of a mech with default structure.
+func NewMech(name string, maxStructure int) *Mech {
+	newMech := new(Mech)
+	newMech.structure = maxStructure
+	newMech.maxStructure = maxStructure
+	newMech.name = name
+
+	return newMech
 }
 
 // StructureLeft Retrieves the amount of remaining structure a mech has.
 func (mech Mech) StructureLeft() int {
 	return mech.structure
-}
-
-// NewMech is used to create a new instance of a mech with default structure.
-func NewMech(name string) *Mech {
-	newMech := new(Mech)
-	newMech.structure = 2
-	newMech.name = name
-
-	return newMech
 }
 
 // internal call when a mech is hit

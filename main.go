@@ -1,4 +1,4 @@
-// test2 project main.go
+// Project to simulate mechs to learn go.
 package main
 
 import (
@@ -15,8 +15,8 @@ func check(e error) {
 
 func main() {
 
-	mech1 := mech.NewMech("Mech1")
-	mech2 := mech.NewMech("Mech2")
+	mech1 := mech.NewMech("Mech1", 2)
+	mech2 := mech.NewMech("Mech2", 2)
 
 	weapon1 := mech.Weapon{Range: 5, Damage: 1}
 	weapon2 := mech.Weapon{Range: 3, Damage: 3}
