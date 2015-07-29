@@ -3,13 +3,15 @@ package mech
 
 import (
 	"fmt"
+
+	"github.com/Ariemeth/mechsim/mech/weapon"
 )
 
 // Mech is a basic mech type
 type mech struct {
 	structure    int
 	maxStructure int
-	weapons      []weapon
+	weapons      []weapon.Weapon
 	name         string
 }
 
@@ -25,7 +27,7 @@ func (mech mech) StructureLeft() int {
 }
 
 // internal call when a mech is hit
-func (mech *mech) hit(damage int) {
+func (mech *mech) Hit(damage int) {
 	mech.structure -= damage
 	fmt.Println(mech.name, "takes", damage, "damage")
 	if mech.structure <= 0 {
@@ -34,12 +36,12 @@ func (mech *mech) hit(damage int) {
 }
 
 // AddWeapon adds a Weapon to the mech
-func (mech *mech) AddWeapon(weapon weapon) {
+func (mech *mech) AddWeapon(weapon weapon.Weapon) {
 	mech.weapons = append(mech.weapons, weapon)
 }
 
 // Fire tells the Mech to fire at a Target
-func (mech *mech) Fire(rangeToTarget int, target Target) {
+func (mech *mech) Fire(rangeToTarget int, target weapon.Target) {
 	for _, weapon := range mech.weapons {
 		weapon.Fire(rangeToTarget, target)
 	}

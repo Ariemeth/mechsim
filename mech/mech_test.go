@@ -4,9 +4,6 @@ import "testing"
 
 func TestNewMech(t *testing.T) {
 
-	//	weapon1 := Weapon{Damage:2, Range:2}
-	//	weapon2 := Weapon{Damage:1, Range:4}
-
 	const mechName string = "testMech"
 	const structure int = 2
 
@@ -26,7 +23,6 @@ func TestNewMech(t *testing.T) {
 
 func TestHit(t *testing.T) {
 
-	//	weapon1 := Weapon{Damage:2, Range:2}
 	const mechName string = "testMech"
 	const structure int = 2
 
@@ -35,12 +31,12 @@ func TestHit(t *testing.T) {
 		t.Errorf("%s was unable to be created", mechName)
 	}
 
-	mech1.hit(0)
+	mech1.Hit(0)
 	if mech1.structure != structure {
 		t.Errorf("%s took damage when it was hit with 0", mechName)
 	}
 
-	mech1.hit(structure)
+	mech1.Hit(structure)
 	if mech1.structure != 0 {
 		t.Errorf("%s was not destroyed by taking %d damage", mechName, structure)
 	}
