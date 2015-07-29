@@ -9,7 +9,7 @@ import (
 type mech struct {
 	structure    int
 	maxStructure int
-	weapons      []Weapon
+	weapons      []weapon
 	name         string
 }
 
@@ -34,7 +34,7 @@ func (mech *mech) hit(damage int) {
 }
 
 // AddWeapon adds a Weapon to the mech
-func (mech *mech) AddWeapon(weapon Weapon) {
+func (mech *mech) AddWeapon(weapon weapon) {
 	mech.weapons = append(mech.weapons, weapon)
 }
 
