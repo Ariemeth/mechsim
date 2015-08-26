@@ -26,7 +26,7 @@ func (mech mech) StructureLeft() int {
 	return mech.structure
 }
 
-// internal call when a mech is hit
+// Hit is call when a mech is hit
 func (mech *mech) Hit(damage int) {
 	mech.structure -= damage
 	fmt.Println(mech.name, "takes", damage, "damage")
