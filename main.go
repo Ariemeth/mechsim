@@ -18,7 +18,7 @@ func check(e error) {
 
 func main() {
 	
-	inputController := controller.NewInput(20)
+	inputController := controller.NewInput()
 	
 	inputChannel := make(chan string)
 	isRunning := true
