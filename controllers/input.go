@@ -8,13 +8,13 @@ import (
 
 //NewInput is used to create an input controller
 func NewInput(listener chan string) *input {
-	newController := input{}
-	newController.isRunning = true
-	newController.listener = listener
-	newController.isDone = make(chan bool)
+	controller := input{}
+	controller.isRunning = true
+	controller.listener = listener
+	controller.isDone = make(chan bool)
 
-	go newController.process()
-	return &newController
+	go controller.process()
+	return &controller
 }
 
 //Input is a controller designed for passing input controls.
