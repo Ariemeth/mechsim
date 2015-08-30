@@ -7,8 +7,8 @@ import (
 )
 
 //NewInput is used to create an input controller
-func NewInput(listener chan string) *Input {
-	newController := Input{}
+func NewInput(listener chan string) *input {
+	newController := input{}
 	newController.isRunning = true
 	newController.listener = listener
 	newController.isDone = make(chan bool)
@@ -18,14 +18,14 @@ func NewInput(listener chan string) *Input {
 }
 
 //Input is a controller designed for passing input controls.
-type Input struct {
+type input struct {
 	listener  chan string
 	isDone    chan bool
 	isRunning bool
 }
 
 //Stop causes the Input controller to stop.
-func (controller *Input) Stop() {
+func (controller *input) Stop() {
 	controller.isDone <- true
 	controller.isRunning = false
 	close(controller.isDone)
@@ -33,7 +33,7 @@ func (controller *Input) Stop() {
 
 //process runs a loop awaiting input from the keyboard and passing
 //it along to any channel registered.
-func (controller *Input) process() {
+func (controller *input) process() {
 
 	outChannel := make(chan string)
 	defer close(outChannel)
@@ -57,7 +57,7 @@ func (controller *Input) process() {
 func getInput(out chan string, isDone chan bool) {
 	reader := bufio.NewReader(os.Stdin)
 	defer close(isDone)
-	
+
 	for {
 		input, _ := reader.ReadString('\n')
 		select {
