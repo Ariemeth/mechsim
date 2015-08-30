@@ -3,6 +3,8 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"os/exec"
 	"strings"
 
 	"github.com/Ariemeth/mechsim/controllers"
@@ -38,9 +40,15 @@ func main() {
 
 	isRunning := true
 
+	c := exec.Command("cmd", "/c", "cls")
+	c.Stdout = os.Stdout
+
 	for isRunning {
 		select {
 		case msg := <-inputChannel:
+			c := exec.Command("cmd", "/c", "cls")
+			c.Stdout = os.Stdout
+			c.Run()
 			if strings.EqualFold(strings.ToLower(msg), "q") {
 				isRunning = false
 			}
