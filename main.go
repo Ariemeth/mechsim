@@ -11,7 +11,7 @@ import (
 	"github.com/Ariemeth/mechsim/mech"
 	"github.com/Ariemeth/mechsim/mech/weapon"
 	
-	"github.com/JoelOtter/termloop"
+	"github.com/Ariemeth/termloop"
 )
 
 func check(e error) {
