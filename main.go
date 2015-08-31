@@ -10,6 +10,8 @@ import (
 	"github.com/Ariemeth/mechsim/controllers"
 	"github.com/Ariemeth/mechsim/mech"
 	"github.com/Ariemeth/mechsim/mech/weapon"
+	
+	"github.com/JoelOtter/termloop"
 )
 
 func check(e error) {
@@ -19,6 +21,9 @@ func check(e error) {
 }
 
 func main() {
+
+	game := termloop.NewGame()
+    game.Start()
 
 	inputChannel := make(chan string)
 
