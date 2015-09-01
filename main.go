@@ -23,6 +23,13 @@ func check(e error) {
 func main() {
 
 	game := termloop.NewGame()
+	level := termloop.NewBaseLevel(termloop.Cell{
+        Bg: termloop.ColorGreen,
+        Fg: termloop.ColorBlack,
+        Ch: 'v',
+    })
+    level.AddEntity(termloop.NewRectangle(10, 10, 50, 20, termloop.ColorBlue))
+    game.SetLevel(level)
     game.Start()
 
 	inputChannel := make(chan string)
